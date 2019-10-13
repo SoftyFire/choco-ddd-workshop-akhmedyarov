@@ -33,12 +33,12 @@ final class Merchant
         return $self;
     }
 
-    public function id()
+    public function id(): UuidInterface
     {
         return $this->id;
     }
 
-    public function name()
+    public function name(): string
     {
         return $this->name;
     }
