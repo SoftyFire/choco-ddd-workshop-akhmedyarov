@@ -7,7 +7,9 @@
     "ramsey/uuid": "*",
     "moneyphp/money": "*",
     "ocramius/generated-hydrator": "*",
-    "zendframework/zend-hydrator": "*"
+    "zendframework/zend-hydrator": "*",
+    "yohang/finite": "^1.1",
+    "psr/container": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
