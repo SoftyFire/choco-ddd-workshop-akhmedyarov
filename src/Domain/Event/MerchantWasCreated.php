@@ -16,4 +16,10 @@ final class MerchantWasCreated
 
         return $self;
     }
+
+    public function merchantId()
+    {
+        return $this->id;
+    }
+
 }
