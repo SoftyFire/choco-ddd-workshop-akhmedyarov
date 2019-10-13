@@ -15,9 +15,8 @@ final class Merchant
     /** @var string */
     private $name;
 
-    public static function register(MerchantRegisterDto $dto): self
+    public static function register(MerchantRegistrationDto $dto): self
     {
 
     }
-
 }

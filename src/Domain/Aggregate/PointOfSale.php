@@ -8,23 +8,22 @@ use Ramsey\Uuid\UuidInterface;
 final class PointOfSale
 {
     /**
-     * @var UuidInterface
-     */
-    private $id;
-
-    /**
      * @var Merchant
      */
     private $merchant;
+
+    /**
+     * @var UuidInterface
+     */
+    private $id;
 
     /**
      * @var CashbackPolicy
      */
     private $cashbackPolicy;
 
-    public static function create(UuidInterface $id, Merchant $Merchant, CashbackPolicy $cashbackPolicy): self
+    public static function create(UuidInterface $id, Merchant $merchant, CashbackPolicy $policy): self
     {
 
     }
-
 }

@@ -3,12 +3,13 @@ declare(strict_types=1);
 
 namespace Billing\Domain\Aggregate;
 
+use DateTimeImmutable;
+use Finite\State\StateInterface;
 use Money\Money;
 use Ramsey\Uuid\UuidInterface;
 
 final class Order
 {
-
     /**
      * @var UuidInterface
      */
@@ -30,10 +31,13 @@ final class Order
     private $amount;
 
     /**
-     * @var \DateTimeImmutable
+     * @var DateTimeImmutable
      */
-    private $create_time;
+    private $createTime;
 
+    /**
+     * @var StateInterface
+     */
     private $status;
 
     public static function create(OrderCreationDto $dto): self
@@ -42,5 +46,4 @@ final class Order
 
         return $self;
     }
-
 }

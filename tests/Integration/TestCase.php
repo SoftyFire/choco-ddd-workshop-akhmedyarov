@@ -16,7 +16,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
      */
     protected $container;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->container = require dirname(__DIR__, 2) . '/config/container.php';
     }

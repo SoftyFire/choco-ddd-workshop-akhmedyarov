@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace Billing\Infrastructure\DI;
 
 use OutOfBoundsException;
+use Psr\Container\ContainerInterface;
 
 /**
  * Class Container
  *
  * @author Dmytro Naumenko <d.naumenko.a@gmail.com>
  */
-class Container
+final class Container implements ContainerInterface
 {
     /**
      * @var object[]
      */
-    protected $objects;
+    private $objects;
     /**
      * @var \Closure[]
      */
@@ -31,7 +32,7 @@ class Container
      * @param string $id
      * @return mixed
      */
-    public function get(string $id)
+    public function get($id)
     {
         if (isset($this->objects[$id])) {
             return $this->objects[$id];
@@ -55,5 +56,10 @@ class Container
         }
 
         throw new OutOfBoundsException('Wrong definition for ' . $id);
+    }
+
+    public function has($id)
+    {
+        return isset($this->definitions[$id]);
     }
 }

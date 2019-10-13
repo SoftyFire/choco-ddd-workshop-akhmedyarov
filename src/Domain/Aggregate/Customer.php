@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Billing\Domain\Aggregate;
 
 use Billing\Domain\DTO\Customer\CustomerRegistrationDto;
-use Billing\Domain\Events\CustomerWasRegistered;
+use Billing\Domain\Event\CustomerWasRegistered;
 use Billing\Domain\Support\ObjectEventsTrait;
 use Billing\Domain\ValueObject\PhoneNumber;
 use Ramsey\Uuid\UuidInterface;
@@ -17,6 +17,7 @@ final class Customer
      * @var UuidInterface
      */
     private $uuid;
+
     /**
      * @var PhoneNumber
      */
@@ -28,16 +29,18 @@ final class Customer
         $self->uuid = $dto->id;
         $self->phone = $dto->phone;
 
-        $self->registerThat(
-            CustomerWasRegistered::occured($self)
-        );
+        $self->registerThat(CustomerWasRegistered::occurred($self));
 
         return $self;
     }
 
-    public function id()
+    public function id(): UuidInterface
     {
         return $this->uuid;
     }
 
+    public function phone(): PhoneNumber
+    {
+        return $this->phone;
+    }
 }
