@@ -23,6 +23,7 @@ class MerchantTest extends TestCase
         $this->assertEquals($dto->name, $merchant->name());
 
         $events = $merchant->flushEvents();
+        $found = false;
         foreach ($events as $event) {
             if ($event instanceof MerchantWasCreated) {
                 $found = true;
